@@ -8,15 +8,14 @@ services:
       - "8082:82"
 
   backend:
-    build:
-      context: ./backend
+    build: ./backend
     ports:
       - "5000:5000"
     depends_on:
       - db
 
   db:
-    build:
-      context: ./db
+    image: mongo:latest
     ports:
       - "27017:27017"
+
