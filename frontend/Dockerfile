@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Copy static files to nginx directory
-# COPY ./frontend/index.html /usr/share/nginx/html
+COPY index.html /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 82
