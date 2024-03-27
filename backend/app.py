@@ -7,6 +7,15 @@ app.config['MONGO_URI'] = 'mongodb://db:27017/mlop_task_5_i202478'
 mongo = PyMongo(app)
 
 
+@app.route('/users', methods=['GET'])
+def users():
+    users = mongo.db.users.find()
+    response = []
+    for user in users:
+        response.append({'name': user['name'], 'email': user['email']})
+    return jsonify(response), 200
+
+
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json 
